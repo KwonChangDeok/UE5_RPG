@@ -1,4 +1,4 @@
-// Actor 클래스를 상속받아 특정 스킬 사용시, 검은색 그림자 잔상을 표현해주기 위한 클래스입니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -13,21 +13,20 @@ class ASSASSIN_API AShadow : public AActor
 	GENERATED_BODY()
 	
 public:	
+	// Sets default values for this actor's properties
 	AShadow();
 
 protected:
-	// UPoseableMeshComponent를 이용해 캐릭터의 동작캡쳐
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	UPoseableMeshComponent* mMesh;
 
-	// 프레넬 노드를 이용해 구현한 머테리얼입니다.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	UMaterialInterface* mShadowMaterial;
 
-	// 메쉬를 구성하는 머테리얼 목록을 저장할 배열
 	TArray<UMaterialInstanceDynamic*> mMtrlArray;
 
 protected:
+	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	

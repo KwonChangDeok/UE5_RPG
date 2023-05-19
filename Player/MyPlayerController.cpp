@@ -1,3 +1,6 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
 #include "MyPlayerController.h"
 #include "PlayerCharacter.h"
 
@@ -17,7 +20,6 @@ void AMyPlayerController::BeginPlay()
     PlayerCharacter = Cast<APlayerCharacter>(GetPawn());
 }
 
-// 만약 커서가 인벤토리 위젯 위에 존재한다면, 마우스 이벤트를 인벤토리 위젯에서 처리하게 되므로 화면이 회전하지 않습니다.
 void AMyPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

@@ -44,7 +44,6 @@ void UPatrolWait::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-	// 비효율적인 실행시간 형변환 문제
 	AMonsterAIController* Controller = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 	AMonsterBase* Monster = Cast<AMonsterBase>(Controller->GetPawn());
 	UMonsterAnimInstance* AnimInst = Monster->GetAnimInstance();

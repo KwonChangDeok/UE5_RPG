@@ -1,4 +1,4 @@
-// Actor 클래스를 상속받아 캐릭터의 스킬 범위를 표현해주기 위한 데칼을 구현한 클래스입니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -12,6 +12,7 @@ class ASSASSIN_API ADecal : public AActor
 	GENERATED_BODY()
 	
 public:	
+	// Sets default values for this actor's properties
 	ADecal();
 
 protected:
@@ -24,9 +25,11 @@ protected:
 	bool mTickKey;
 
 protected:
+	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	void SetDecalWorldLocation(FVector Location)

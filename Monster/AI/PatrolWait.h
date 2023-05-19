@@ -1,4 +1,4 @@
-// BTTaskNode 클래스를 상속받아 몬스터가 정찰 중 실정시간 Idle상태로 대기하는 기능을 구현한 클래스입니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -6,6 +6,9 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "PatrolWait.generated.h"
 
+/**
+ * 
+ */
 UCLASS()
 class ASSASSIN_API UPatrolWait : public UBTTaskNode
 {

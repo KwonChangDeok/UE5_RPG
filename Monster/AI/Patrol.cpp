@@ -62,7 +62,6 @@ void UPatrol::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, flo
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-	// 공통적으로 제가 실수한 Tick에서의 실행시간 형변환 문제입니다.
 	AMonsterAIController* Controller = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 	AMonsterBase* Monster = Cast<AMonsterBase>(Controller->GetPawn());
 	UMonsterAnimInstance* AnimInst = Monster->GetAnimInstance();

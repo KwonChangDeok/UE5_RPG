@@ -16,6 +16,7 @@
 // Sets default values
 APlayerCharacter::APlayerCharacter()
 {
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	mSpringArm = CreateDefaultSubobject<USpringArmComponent>(_T("SpringArm"));
 	mCamera = CreateDefaultSubobject<UCameraComponent>(_T("Camera"));
 
@@ -87,6 +88,7 @@ APlayerCharacter::APlayerCharacter()
 	mItemIndex = 0;
 }
 
+// Called when the game starts or when spawned
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
@@ -95,7 +97,6 @@ void APlayerCharacter::BeginPlay()
 	
 	const FPlayerTableInfo* Info = GameInstance->GetPlayerTable(mPlayerInfoRowName);
 
-	// 유효성 검사 후 데이터테이블 초기화
 	if (Info)
 	{
 		mPlayerInfo.AttackPoint = Info->AttackPoint;
@@ -121,7 +122,6 @@ void APlayerCharacter::BeginPlay()
 	
 	mAnimInst = Cast<UPlayerAnimInstance>(GetMesh()->GetAnimInstance());
 
-	// 주기적으로 SP감소 및 MP를 회복
 	GetWorldTimerManager().SetTimer(PlayerInfoTimer, this, &APlayerCharacter::SetPlayerInfoFromTime, 5.f, true, -1.f);
 	
 	AAssassinGameModeBase* GameMode = Cast<AAssassinGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
@@ -151,18 +151,14 @@ void APlayerCharacter::BeginPlay()
 	mWidgetComponent->SetWidgetSpace(EWidgetSpace::Screen);
 	mWidgetComponent->SetVisibility(false);
 
-	// 유저위젯의 생성시점이 늦으므로 타이머를 이용해 초기화했습니다.
-	// 정보를 찾아 본 결과 가장 늦게 생성된다는 PostLogin에서도 문제가 생겨 타이머를 이용하게 되었습니다.
-	// 더욱 안정적인 게임을 만들기 위해선 타이머를 주기적으로 호출해 객체 할당을 시도하고, 할당 후 타이머핸들을 파괴하는 방법이 더욱 적절하다고
-	// 생각합니다.
 	GetWorldTimerManager().SetTimer(InitTimer, this, &APlayerCharacter::InitializeInven, 0.1f, false, -1.f);
 }
 
+// Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// 순간이동 시 카메라의 자연스러운 이동을 위해 선형보간을 이용한 TargetArmLength 길이 조정
 	if (TargetArmKey)
 	{
 		SetTargetArmLength(DeltaTime);
@@ -320,7 +316,6 @@ float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& Damag
 {
 	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
-	// 삼항 연산자를 쓰는것이 선호되지 않을 수도 있다고 알고있습니다. 이런 부분은 적극적으로 팀원들에게 맞추겠습니다.
 	float Damage = (DamageAmount - mPlayerInfo.ArmorPoint) > 1.f ? (DamageAmount - mPlayerInfo.ArmorPoint) : 1.f;
 
 	mPlayerInfo.HP -= Damage;
@@ -349,7 +344,6 @@ void APlayerCharacter::MoveForward(float scale)
 		return;
 	}
 
-	// 카메라가 회전해 엑터가 카메라의 정면방향을 바라보고 있지 않더라도, 플레이어의 이동은 카메라의 정면을 기준으로 해야한다고 생각했습니다.
 	if (FMath::Abs(GetActorRotation().Yaw - mSpringArm->GetRelativeRotation().Yaw) > 2.f)
 	{
 		SetActorRotation(FRotator(0.f, mSpringArm->GetRelativeRotation().Yaw, 0.f));
@@ -390,9 +384,6 @@ void APlayerCharacter::MoveSide(float scale)
 			mAnimInst->SetMoveDir(-90.f);
 		}
 	}
-	// 대각선 이동을 구현할때, 보다 자연스러운 애니메이션의 전환을 위해 점진적으로 애니메이션의 회전각을 변경하는 방법을 사용했습니다.
-	// 하지만 사용한 애니메이션 에셋이 다소 자연스럽지 못한 부분이 있어 부분적으로만 적용하게 되었으며
-	// 각도량에 변화를 줄 때, 델타타임을 곱해 언제나 일정한 결과를 얻을 수 있도록 구현해야 했지만, 이를 알고있음에도 실수를 했습니다.
 	else if (mForwardScale == 1.f)
 	{
 		if (scale == 0.f)
@@ -471,8 +462,6 @@ void APlayerCharacter::Attack()
 		return;
 	}
 
-	// 만약 v키가 활성화 된 후 v를 누른상태라면, 좌클릭을 통해 v스킬을 사용할 수 있도록 구현했습니다.
-	// 그렇지 않다면 기본 콤보공격을 발동합니다.
 	if (mPressedV == false)
 	{
 		mAnimInst->Attack();
@@ -685,8 +674,6 @@ void APlayerCharacter::Inventory()
 	}
 }
 
-// 인벤토리 위젯 영역 외부에서 발생한 버튼 업 이벤트를 처리할 필요가 있었습니다.
-// 드래그 중인 아이템이있다면, 실행을 취소하도록 하는 기능을 합니다.
 void APlayerCharacter::BtnUpEvent()
 {
 	UInventoryBase* mInventory = Cast<UInventoryBase>(mWidgetComponent->GetWidget());
@@ -705,9 +692,6 @@ void APlayerCharacter::BtnUpEvent()
 	}
 }
 
-
-// 퀵슬롯 1, 2, 3, 4에 맵핑된 함수들은 같은 로직을 중복적으로 작성하여 가독성을 크게 해친다고 생각합니다.
-// 중복되는 내용을 따로 함수화 해 중복을 제거하는 것이 바람직하다고 생각합니다.
 void APlayerCharacter::QuickSlot1()
 {
 	int32 SlotNum = 1;

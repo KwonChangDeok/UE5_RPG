@@ -4,6 +4,7 @@
 #include "../Monster/MonsterBase.h"
 #include "../AssassinGameModeBase.h"
 
+// Sets default values
 APlayerSkillProjectile::APlayerSkillProjectile()
 {
     PrimaryActorTick.bCanEverTick = true;
@@ -35,11 +36,13 @@ APlayerSkillProjectile::APlayerSkillProjectile()
     AccDistance = 0.f;
 }
 
+// Called when the game starts or when spawned
 void APlayerSkillProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
+// Called every frame
 void APlayerSkillProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

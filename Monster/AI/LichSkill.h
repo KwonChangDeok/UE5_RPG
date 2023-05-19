@@ -1,4 +1,4 @@
-// BTTaskNode 클래스를 상속받아 리치 몬스터의 스킬을 실행하도록 구현한 클래스입니다. 랜덤한 값과 조건들에 따른 스킬을 선택해 실행합니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 

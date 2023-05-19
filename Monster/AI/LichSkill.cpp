@@ -103,8 +103,6 @@ void ULichSkill::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, 
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
-	// 틱에서의 실행시간 형변환 문제
-	// 보스몬스터의 경우 월드상에 하나의 객체만 배치될 것이기 때문에, 멤버변수로 유지하는 것이 적절하다고 생각합니다.
 	AMonsterAIController* Controller = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 	UMonsterAnimInstance* AnimInst = Boss->GetAnimInstance();
 

@@ -1,8 +1,4 @@
-/*
-AnimInstanc 클래스를 상속받아 애니메이션 블루프린트와 함께 작동하여 캐릭터의 애니메이션 시스템을 구성하는 클래스입니다. 
-C++클래스에서 설정한 변수값을 이용해 적절한 애니메이션을 애니메이션블루프린트에서 재생하도록 구현하였으며
-블루프린트에서 발생시키는 AnimNotify 이벤트를 처리해주는 역할을 수행합니다.
-*/
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -18,7 +14,6 @@ public:
 	UPlayerAnimInstance();
 
 protected:
-	// 블루프린트에 변수들을 공개하여 변수값에 따른 적절한 애니메이션을 재생할 수 있도록 구현했습니다.
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	float mMoveDir;
 
@@ -101,7 +96,6 @@ public:
 		mHitEnable = true;
 	}
 
-	// AnimNotify 이벤트 처리함수들입니다.
 public:
 	UFUNCTION()
 	void AnimNotify_RecoveryStart();

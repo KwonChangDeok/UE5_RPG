@@ -1,4 +1,4 @@
-// MonsterBase 클래스를 상속받아 일반 몬스터들이 공유하는 기능을 구현한 클래스입니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -15,16 +15,20 @@ class ASSASSIN_API AMonster : public AMonsterBase
 	GENERATED_BODY()
 
 public:
+	// Sets default values for this character's properties
 	AMonster();
 	FTimerHandle InitTimer;
 
 protected:
+	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void PossessedBy(AController* AIController);
 
-public:
+public:	
+	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser);

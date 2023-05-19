@@ -1,4 +1,4 @@
-// BTDecorator 클래스를 상속받아 몬스터와 플레이어 사이의 거리를 계산해 탐지범위 내 플레이어의 존재여부를 반환하는 클래스입니다.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
