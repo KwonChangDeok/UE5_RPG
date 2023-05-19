@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Actor 클래스를 상속받아 월드에 배치해 좌표값을 가질 수 있도록 구현한 클래스입니다.
 
 #pragma once
 
@@ -11,8 +11,7 @@ class ASSASSIN_API AMonsterPatrolPoint : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
-	// Sets default values for this actor's properties
+public:
 	AMonsterPatrolPoint();
 	
 protected:
@@ -20,11 +19,9 @@ protected:
 	USceneComponent* mRoot;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
 };

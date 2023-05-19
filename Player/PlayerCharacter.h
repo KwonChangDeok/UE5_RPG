@@ -1,4 +1,6 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+Character 클래스를 상속받아 입력매핑 및 캐릭터의 이동 및 공격, 스킬사용 등을 구현한 클래스입니다.
+*/
 
 #pragma once
 
@@ -15,10 +17,10 @@ class ASSASSIN_API APlayerCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	APlayerCharacter();
 
 protected:
+	// 테스트를 용이하게 하기 위한 UPROPERTY설정 변수들
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Component, meta = (AllowPrivateAccess = true))
 	USpringArmComponent* mSpringArm;
 

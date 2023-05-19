@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Character 클래스를 상속받아 모든 몬스터가 공유하는 기능들을 구현한 클래스입니다.
 
 #pragma once
 
@@ -11,7 +11,6 @@ class ASSASSIN_API AMonsterBase : public ACharacter
 {
 	GENERATED_BODY()
 public:
-	// Sets default values for this character's properties
 	AMonsterBase();
 
 protected:
@@ -25,6 +24,7 @@ protected:
 	class AMonsterAIController* MonsterAIController;
 
 protected:
+	// 보스몬스터와 일반몬스터가 다른 위젯 블루프린트로 해당 변수들을 초기화 하여 다른 UI를 가질 수 있도록 구현하고자 했습니다.
 	TSubclassOf<class UMonsterInfoBase> mMonsterInfoBaseClass;
 	UWidgetComponent* mWidgetComponent;
 
@@ -49,20 +49,20 @@ protected:
 	bool mBoss;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void PossessedBy(AController* AIController);
 
 public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser);
 
 public:
+
+	// 순수 가상함수를 사용하지 않은 이유는 추상 클래스를 만들게되면 인스턴스를 생성할 수 없게 되므로
+	// 다운캐스팅을 활용하기 어렵게 되기 때문에 이렇게 구현했습니다.
 	virtual void Attack();
 
 	const FMonsterInfo& GetMonsterInfo() const

@@ -1,6 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
-
 #include "AssassinGameModeBase.h"
 #include "Player/MyPlayerController.h"
 #include "Player/AssassinCharacter.h"
