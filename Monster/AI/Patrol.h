@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// BTTaskNode 클래스를 상속받아 몬스터의 정찰 기능을 구현한 클래스입니다.
 
 #pragma once
 
@@ -6,9 +6,6 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "Patrol.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UPatrol : public UBTTaskNode
 {

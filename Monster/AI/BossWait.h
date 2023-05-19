@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// BTTaskNode 클래스를 상속받아 보스몬스터의 대기 행동을 구현한 클래스입니다. 보스몬스터 종류별로 일정시간 Idle상태로 대기하도록 동작합니다.
 
 #pragma once
 
@@ -6,9 +6,6 @@
 #include "BehaviorTree/BTTaskNode.h"
 #include "BossWait.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UBossWait : public UBTTaskNode
 {

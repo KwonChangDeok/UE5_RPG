@@ -1,4 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+Actor 클래스를 상속받아 월드에 배치된 지점에서 몬스터를 생성 및 리스폰하고, 특정 지점들을 패트롤 수 있도록 하는 기능을 구현한 클래스입니다.
+에디터 상에서 소환할 몬스터와 리스폰간격, 정찰 지점들을 설정할 수 있도록 구현했습니다.
+*/
 
 #pragma once
 
@@ -12,13 +15,13 @@ class ASSASSIN_API AMonsterSpawnPoint : public AActor
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
 	AMonsterSpawnPoint();
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	USceneComponent* mRoot;
 
+	// 전방선언을 활용한 헤더 순환참조 방지
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = true))
 	TSubclassOf<class AMonster>	mSpawnMonsterClass;
 
@@ -36,11 +39,9 @@ private:
 	TArray<FVector> mMonsterPatolPointLocation;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	TArray<class AMonsterPatrolPoint*> GetPatrolPoint()

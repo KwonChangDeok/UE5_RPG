@@ -1,10 +1,18 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+AnimInstanc 클래스를 상속받아 애니메이션 블루프린트와 함께 작동하여 몬스터의 애니메이션 시스템을 구성하는 클래스입니다.
+C++클래스에서 설정한 변수값을 이용해 적절한 애니메이션을 애니메이션블루프린트에서 재생하도록 구현하였으며 
+블루프린트에서 발생시키는 AnimNotify 이벤트를 처리해주는 역할을 수행합니다.
+*/
 
 #pragma once
 
 #include "../GameInfo.h"
 #include "Animation/AnimInstance.h"
 #include "MonsterAnimInstance.generated.h"
+
+// 보스몬스터와 일반 몬스터가 같은 애님인스턴스를 사용하는 것은 바람직하지 않다고 생각합니다.
+// 역시 클래스 설계의 미숙함으로 인해 생긴 문제였습니다. 아무리 파생 블루프린트를 다르게 사용한다 하더라도,
+// 이러한 설계는 코드의 유지보수성을 떨어뜨리고 확장에 불리하며 메모리를 낭비하게됩니다.
 
 UENUM(BlueprintType)
 enum class EMonsterAnimType : uint8
@@ -17,6 +25,7 @@ enum class EMonsterAnimType : uint8
 	LichGimmick
 };
 
+// 애니메이션에 랜덤성을 부여해 단조롭지 않게 느껴지도록 노력했습니다.
 UENUM(BlueprintType)
 enum class EMonsterAttackAnimType : uint8
 {

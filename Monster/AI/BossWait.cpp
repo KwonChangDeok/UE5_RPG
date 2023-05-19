@@ -43,6 +43,7 @@ void UBossWait::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, f
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
+	// 실행시간 형변환 문제
 	AMonsterAIController* Controller = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 	ABossMonster* Boss = Cast<ABossMonster>(Controller->GetPawn());
 	UMonsterAnimInstance* AnimInst = Boss->GetAnimInstance();

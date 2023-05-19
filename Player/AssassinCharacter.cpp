@@ -58,6 +58,9 @@ void AAssassinCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
+// Attack판정 함수들의 로직은 중복되는 로직이 많습니다.
+// 이를 적절히 함수화하여 코드의 중복을 줄이고, 가독성을 향상시키는 것이 좋다고 생각합니다.
+
 // 가장 기본적인 공격력과 범위 적용
 void AAssassinCharacter::AttackSingle()
 {

@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 
 #include "Attack.h"
 #include "MonsterAIController.h"
@@ -51,6 +49,8 @@ void UAttack::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, flo
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
 
+	// TargetTrace 에서와 같이 무거운 형변환을 TickTask에서 수행한것은 잘못된 부분입니다.
+	// 블랙보드 변수로 유지하고 틱에선 유효성 검사만 수행하는것이 성능에 좋다고 생각합니다.
 	AMonsterAIController* Controller = Cast<AMonsterAIController>(OwnerComp.GetAIOwner());
 	AMonsterBase* Monster = Cast<AMonsterBase>(Controller->GetPawn());
 	ACharacter* Target = Cast<ACharacter>(Controller->GetBlackboardComponent()->GetValueAsObject(_T("Target")));
