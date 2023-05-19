@@ -1,4 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+Actor 클래스를 상속받아 바위거인의 바위 투사체를 구현한 클래스입니다.
+바위의 낙하지점을 예상하여 데칼로 표현해주는 기능을 포함합니다.
+*/
 
 #pragma once
 

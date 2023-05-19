@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Actor 클래스를 상속받아 리치의 0.5초 뒤 폭발하는 스킬 사운드 재생을 담당하는 클래스입니다.
 
 #pragma once
 

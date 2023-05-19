@@ -1,13 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// ABossMonster 클래스를 상속받아 리치의 기본공격 및 스킬, 기믹을 구현한 클래스입니다.
 
 #pragma once
 
 #include "BossMonster.h"
 #include "Lich.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API ALich : public ABossMonster
 {

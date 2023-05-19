@@ -1,4 +1,4 @@
-// BTDecorator 클래스를 상속받아 몬스터와 플레이어 사이의 거리를 계산해 탐지범위 내 플레이어의 존재여부를 반환하는 클래스입니다.
+//  BTDecorator 클래스를 상속받아 몬스터와 플레이어 사이의 거리를 계산해 특정 범위 안에 플레이어의 존재여부를 반환하는 클래스입니다.
 
 #pragma once
 
@@ -13,9 +13,6 @@ enum class ECheckDistanceType : uint8
 	Trace
 };
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UCheckDistance : public UBTDecorator
 {
