@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Actor 클래스를 상속받아 리치 스킬의 충돌판정을 구현한 클래스입니다. 생성 후 0.5초 뒤 범위 내 플레이어가 있다면 데미지를 가합니다.
 
 #pragma once
 
@@ -12,7 +12,6 @@ class ASSASSIN_API ALichSkill3Object : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	ALichSkill3Object();
 
 private:
@@ -23,11 +22,9 @@ protected:
 	USceneComponent* mRoot;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 public:

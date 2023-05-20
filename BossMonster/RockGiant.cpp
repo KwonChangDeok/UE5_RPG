@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "RockGiant.h"
 #include "../Player/PlayerCharacter.h"
 #include "BossSkillPojectile.h"
@@ -27,6 +24,8 @@ void ARockGiant::PossessedBy(AController* AIController)
 	MonsterAIController->SetBehaviorTree(_T("BehaviorTree'/Game/Monster/AI/BTGiant.BTGiant'"));
 	MonsterAIController->SetBlackboard(_T("BlackboardData'/Game/Monster/AI/BBGiant.BBGiant'"));
 }
+
+// 아래 함수들에서 중복되는 충돌판정을 함수화 하는 것이 좋다고 생각합니다.
 
 void ARockGiant::Attack()
 {

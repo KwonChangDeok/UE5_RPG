@@ -1,4 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+UserWidget 클래스를 상속받아 프로그래스바와 텍스트 블록의 값을 설정해 몬스터의 이름과 HP정보 등을 표현할 수 있도록 하는 클래스입니다. 
+블루프린트로 파생 시, 일반 몬스터와 보스 몬스터의 UI 배치와 디자인에 차이를 두었습니다.
+*/
 
 #pragma once
 
@@ -9,9 +12,6 @@
 #include "Blueprint/UserWidget.h"
 #include "MonsterInfoBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UMonsterInfoBase : public UUserWidget
 {

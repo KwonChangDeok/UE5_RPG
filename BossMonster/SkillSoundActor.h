@@ -11,8 +11,7 @@ class ASSASSIN_API ASkillSoundActor : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
-	// Sets default values for this actor's properties
+public:
 	ASkillSoundActor();
 
 protected:
@@ -24,11 +23,9 @@ protected:
 	FVector Location;
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
 	void PlaySound();

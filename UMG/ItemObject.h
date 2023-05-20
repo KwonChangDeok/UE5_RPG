@@ -1,4 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Object 클래스를 상속받아 구현한 인벤토리 내 아이템 객체입니다. 
+// 아이템의 수량, 아이콘 경로, 아이템명과 설명, 고유ID등의 정보를 가지고 있습니다.
 
 #pragma once
 
@@ -6,9 +7,6 @@
 #include "UObject/NoExportTypes.h"
 #include "ItemObject.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UItemObject : public UObject
 {

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// UserWidget 클래스를 상속받아 플레이어의 상태 정보를 프로그래스바와, 텍스트를 설정 해 표현할 수 있도록 하는 클래스입니다.
 
 #pragma once
 
@@ -9,9 +9,6 @@
 #include "Blueprint/UserWidget.h"
 #include "PlayerInfoBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UPlayerInfoBase : public UUserWidget
 {

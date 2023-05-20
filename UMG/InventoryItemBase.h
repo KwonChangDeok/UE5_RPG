@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// UserWidget 클래스를 상속받아 구현한 InventoryBase 타일뷰의 엔트리 위젯 클래스의 부모 클래스입니다.
 
 #pragma once
 
@@ -9,9 +9,6 @@
 #include "Blueprint/UserWidget.h"
 #include "InventoryItemBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UInventoryItemBase : public UUserWidget
 {

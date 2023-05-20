@@ -119,6 +119,8 @@ float ALich::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, ACo
 	return 0.f;
 }
 
+// 아래 공격 스킬들의 중복되는 코드를 함수화하는 것이 좋다고 생각합니다.
+
 void ALich::Skill1Attack()
 {
 	FVector StartLoc = GetActorLocation();

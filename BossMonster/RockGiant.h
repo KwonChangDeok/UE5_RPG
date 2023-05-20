@@ -1,13 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// BossMonster 클래스를 상속받아 바위거인의 기본 공격 및 스킬, 기믹 등을 구현한 클래스입니다.
 
 #pragma once
 
 #include "BossMonster.h"
 #include "RockGiant.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API ARockGiant : public ABossMonster
 {

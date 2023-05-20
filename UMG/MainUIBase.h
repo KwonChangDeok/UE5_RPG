@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// UserWidget 클래스를 상속받아 플레이어 상태 정보, 스킬쿨타임 정보, 퀵슬롯 정보 등의 유저 위젯을 포함하는 메인 UI 클래스입니다.
 
 #pragma once
 
@@ -13,9 +13,6 @@
 #include "Blueprint/UserWidget.h"
 #include "MainUIBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UMainUIBase : public UUserWidget
 {

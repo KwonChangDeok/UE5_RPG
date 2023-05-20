@@ -1,25 +1,18 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "LichSkill3Object.h"
 #include "../Player/PlayerCharacter.h"
 #include "../AssassinGameModeBase.h"
 #include "Lich.h"
 
-// Sets default values
 ALichSkill3Object::ALichSkill3Object()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	mRoot = CreateDefaultSubobject<USceneComponent>(_T("RootComponent"));
 	mRoot->SetVisibility(true);
 
 	SetRootComponent(mRoot);
-
 }
 
-// Called when the game starts or when spawned
 void ALichSkill3Object::BeginPlay()
 {
 	Super::BeginPlay();
@@ -27,11 +20,9 @@ void ALichSkill3Object::BeginPlay()
 	GetWorld()->GetTimerManager().SetTimer(BoomTimer, this, &ALichSkill3Object::Boom, 0.5f, false, -1.f);
 }
 
-// Called every frame
 void ALichSkill3Object::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void ALichSkill3Object::Boom()

@@ -1,13 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// BoxTriggerBase 클래스를 상속받아 리치 맵에서 오버랩시 초당 플레이어의 HP가 1씩 감소하도록 구현했으며,
+// 기믹 파훼를 위한 도구로 활용할 수 있습니다.
 
 #pragma once
 
 #include "BoxTriggerBase.h"
 #include "LichFire.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API ALichFire : public ABoxTriggerBase
 {

@@ -1,16 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "BossSkillPojectile.h"
 #include "../Player/Skill/Decal.h"
 #include "../Player/PlayerCharacter.h"
 #include "RockGiant.h"
 #include "SkillSoundActor.h"
 
-// Sets default values
 ABossSkillPojectile::ABossSkillPojectile()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
     // 충돌 컴포넌트 생성
@@ -35,7 +30,6 @@ ABossSkillPojectile::ABossSkillPojectile()
     StaticMeshComponent->SetWorldScale3D(FVector(4.f, 4.f, 4.f));
 }
 
-// Called when the game starts or when spawned
 void ABossSkillPojectile::BeginPlay()
 {
 	Super::BeginPlay();
@@ -66,7 +60,6 @@ void ABossSkillPojectile::BeginPlay()
     Sound->SetLifeSpan(HitTime + 5.f);
 }
 
-// Called every frame
 void ABossSkillPojectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -93,6 +86,8 @@ void ABossSkillPojectile::OnProjectileHit(UPrimitiveComponent* HitComponent, AAc
 {
     ARockGiant* Boss = Cast<ARockGiant>(UGameplayStatics::GetActorOfClass(GetWorld(), ARockGiant::StaticClass()));
     
+    // 매개변수로 주어진 FHitResult를 이용해 구현하려 했지만, 원하는바를 구현하기가 어려웠습니다.
+    // 추가로 충돌판정을 진행하는 것이 비효율적인 방법이라고 생각하며 매개변수를 이용하는 방향으로 개선하는 것이 좋을것 같습니다.
     if(IsValid(Boss))
     {
         FCollisionQueryParams param(NAME_None, false, this);

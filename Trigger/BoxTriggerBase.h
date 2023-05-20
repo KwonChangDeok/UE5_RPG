@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Actor 클래스를 상속받아 플레이어와 오버랩 이벤트 발생 시 이벤트 처리 함수를 바인딩 하는 기능을 수행합니다
 
 #pragma once
 
@@ -11,16 +11,13 @@ class ASSASSIN_API ABoxTriggerBase : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
-	// Sets default values for this actor's properties
+public:
 	ABoxTriggerBase();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
+public:
 	virtual void Tick(float DeltaTime) override;
 
 protected:
@@ -34,6 +31,7 @@ public:
 	virtual void OnConstruction(const FTransform& Transform);
 
 public:
+	// 델리게이트에 등록할 함수
 	UFUNCTION()
 	void BeginOverlap(UPrimitiveComponent* OverlappedComponent,
 			AActor* OtherActor, UPrimitiveComponent* OtherComp,
@@ -45,6 +43,7 @@ public:
 			AActor* OtherActor, UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
+	// 이벤트 발생시 간략화한 아래의 함수들을 호출하고, 이를 자식클래스에서 재정의하여 기능 구현
 public:
 	virtual void TriggerBegin(const FHitResult& SweepResult);
 	virtual void TriggerEnd();

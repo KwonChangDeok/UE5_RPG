@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// UserWidget 클래스를 상속받아 대쉬 스킬의 쿨타임 정보를 텍스트와 이미지의 색을 설정해 표현할 수 있도록 하는 클래스입니다
 
 #pragma once
 
@@ -9,9 +9,6 @@
 #include "Blueprint/UserWidget.h"
 #include "DashCoolDownBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UDashCoolDownBase : public UUserWidget
 {

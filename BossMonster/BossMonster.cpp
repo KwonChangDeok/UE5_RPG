@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "BossMonster.h"
 #include "../Player/PlayerCharacter.h"
 #include "../Player/PlayerAnimInstance.h"
@@ -39,6 +37,7 @@ void ABossMonster::BeginPlay()
 	if (IsValid(mWidgetComponent))
 	{
 		mWidgetComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		// 고정된 값이 아닌, 현재 뷰포트 크기에 따른 비율로 설정하는 것이 적합하다고 생각합니다.
 		mWidgetComponent->SetDrawSize(FVector2D(1000.0, 100.0));
 		mWidgetComponent->GetUserWidgetObject()->AddToViewport();
 		mWidgetComponent->SetWidgetSpace(EWidgetSpace::Screen);
@@ -69,6 +68,7 @@ void ABossMonster::SkillDamage(float DamageAmount, APlayerCharacter* DamagedPlay
 	AAssassinGameModeBase* GameMode = Cast<AAssassinGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	GameMode->GetMainUI()->SetHP(DamagedPlayer->GetPlayerInfo().HP, DamagedPlayer->GetPlayerInfo().HPMax);
 
+	// 구현 이후 영상을 편집하며 넉다운이 아닌 넉업이 더 적합한 표현일 것 이라고 생각했습니다.
 	DamagedPlayer->GetAnimInst()->KnockDown();
 }
 

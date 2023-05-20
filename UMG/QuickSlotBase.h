@@ -1,4 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+/*
+UserWidget 클래스를 상속받아 소비 아이템을 퀵슬롯에 등록하고, 
+슬롯 번호에 해당하는 키를 입력해 소모할 수 있으며 마우스 이벤트를 이용한 아이템의 드래그 앤 드롭 기능을 구현한 클래스입니다.
+*/
 
 #pragma once
 
@@ -9,9 +12,6 @@
 #include "Blueprint/UserWidget.h"
 #include "QuickSlotBase.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class ASSASSIN_API UQuickSlotBase : public UUserWidget
 {
